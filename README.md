@@ -17,9 +17,9 @@ Technology used:
 
 How to run
 * Clone repo from https://github.com/sureshgpln/myAtmService.git 
-* Build using Maven
-* Run the application class as springboot application
-* embedded tomcat should start on port 8080
+* Build using Maven “mvn clean install”
+* Run the application “mvn spring-boot:run”
+* Embedded tomcat should start on port 8080
 
 Testing: 
 You can test using Postman or browser
@@ -49,5 +49,15 @@ The success response will look like
                 "currency_type": "TWENTY",
                 "currency_count": 3
             }
-        ],
+        ]
 }
+```
+
+The Failure response will look like
+```
+{
+    "responseDesc": "Funds not available for the amount requested, please try later",
+    "responseStatus": "FAIL",
+    "responseBody": []
+}
+```
