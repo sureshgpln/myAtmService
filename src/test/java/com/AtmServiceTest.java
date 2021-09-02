@@ -5,7 +5,6 @@ import com.service.AtmService;
 import com.util.CurrencyTypes;
 import com.web.exception.InsufficientBalanceException;
 import com.web.exception.InvalidAmountException;
-import com.web.model.AtmRequest;
 import com.web.model.Currency;
 import org.junit.Assert;
 import org.junit.Before;
@@ -16,7 +15,6 @@ import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import javax.validation.constraints.AssertTrue;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -117,11 +115,35 @@ public class AtmServiceTest {
     @Test
     public void withdraw200WithLimitedCurrency() throws InsufficientBalanceException, InvalidAmountException {
 
-/*
         List<Currency> currencies = getCurrencies(0, 0, 0, 3, 8);
         when(mockCurrencyRepository.findAll()).thenReturn(convertToCurrencyEntities(currencies));
-        Assert.assertEquals(1, atmService.withdraw(200).size());
-*/
+        Assert.assertEquals(2, atmService.withdraw(200).size());
 
     }
+
+    @Test
+    public void withdraw100WithLimitedCurrency() throws InsufficientBalanceException, InvalidAmountException {
+
+        List<Currency> currencies = getCurrencies(0, 0, 0, 3, 8);
+        when(mockCurrencyRepository.findAll()).thenReturn(convertToCurrencyEntities(currencies));
+        Assert.assertEquals(1, atmService.withdraw(100).size());
+
+    }
+
+    @Test
+    public void withdrawWhenOnlyFiftyAndTwenty() throws InsufficientBalanceException, InvalidAmountException {
+
+        List<Currency> currencies = getCurrencies(0, 0, 0, 50, 50);
+        when(mockCurrencyRepository.findAll()).thenReturn(convertToCurrencyEntities(currencies));
+        Assert.assertEquals(1, atmService.withdraw(20).size());
+        Assert.assertEquals(1, atmService.withdraw(40).size());
+        Assert.assertEquals(1, atmService.withdraw(50).size());
+        Assert.assertEquals(1, atmService.withdraw(60).size());
+        Assert.assertEquals(2, atmService.withdraw(70).size());
+        Assert.assertEquals(1, atmService.withdraw(80).size());
+        //Assert.assertEquals(2, atmService.withdraw(100).size());
+        //Assert.assertEquals(3, atmService.withdraw(150).size());
+
+    }
+
 }

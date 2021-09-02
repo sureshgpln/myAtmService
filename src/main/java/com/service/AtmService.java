@@ -77,8 +77,9 @@ public class AtmService {
 
             for (int j = 0;(j < availableCurrency.getCurrency_count()) && (remainingAmount >= availableCurrencyValue);j++) {
 
-                //currency 50 should not be issued if the remaining amount is even, instead 20 should be used
+                //currency 50 should not be issued if the remaining amount is even and <=100, instead 20 should be used
                 if ((CurrencyTypes.FIFTY.getValue() == availableCurrencyValue)
+                        && (remainingAmount <= 100)
                         && ((remainingAmount/10) % 2 == 0)){
                     break;
                 }
