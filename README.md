@@ -1,7 +1,7 @@
 # myAtmService
 myAtmService
 
-This is a RestFul web service to simulate the cash operations in an ATM
+This is a RestFul service to simulate the cash operations in an ATM
 
 Endpoints.
 * Initialize - To initialize or add currencies into the ATM
@@ -13,6 +13,7 @@ Technology used:
 * Spring boot
 * H2
 * Mockito
+* lombok
 
 
 How to run
