@@ -26,19 +26,28 @@ You can test using Postman or browser
 The success response will look like
 ```
 {
-    "responseCode": "0",
     "responseDesc": "SUCCESS",
     "responseStatus": "SUCCESS",
     "responseBody": [
-        {
-            "type": "ONE_HUNDRED",
-            "value": 100,
-            "amount": 1
-        },
-        {
-            "type": "FIFTY",
-            "value": 50,
-            "amount": 1
-        }
-    ]
+            {
+                "currency_type": "THOUSAND",
+                "currency_count": 20
+            },
+            {
+                "currency_type": "FIVE_HUNDRED",
+                "currency_count": 20
+            },
+            {
+                "currency_type": "ONE_HUNDRED",
+                "currency_count": 20
+            },
+            {
+                "currency_type": "FIFTY",
+                "currency_count": 5
+            },
+            {
+                "currency_type": "TWENTY",
+                "currency_count": 3
+            }
+        ],
 }
