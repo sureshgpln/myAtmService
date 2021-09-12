@@ -1,0 +1,22 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: openjdk8
+    commands:
+      - echo install
+  pre-build:
+    commands:
+      - echo pre-build
+  build:
+    commands:
+      - mvn package
+      - echo build
+  post-build:
+    commands:
+      - echo post-build
+
+artifacts:
+  files:
+    - target/myAtmService-1.0.0-RELEASE.jar
