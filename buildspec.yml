@@ -6,14 +6,14 @@ phases:
       java: openjdk8
     commands:
       - echo install
-  pre-build:
+  pre_build:
     commands:
       - echo pre-build
   build:
     commands:
       - mvn package
       - echo build
-  post-build:
+  post_build:
     commands:
       - echo post-build
 
